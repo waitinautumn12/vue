@@ -1,0 +1,332 @@
+.thirdPage{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+.pattern-option{
+  width: 4vw;
+  height:87%;
+  position: absolute;
+  right: 3vw;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.pattern-option > div{
+  background-size:100% 100%;
+  width: 4vw;
+  height: 4vw;
+  margin-bottom: .5vw;
+  cursor: pointer;
+  position: relative;
+}
+.pattern-option > div:nth-child(3) > div{
+  width: 11vw;
+  height: 13.6vw;
+  background:rgba(0,0,0,.5);
+  position: absolute;
+  left:-12vw;
+  top: -6.8vw;
+  margin-top: 2vw;
+  padding: .5vw;
+}
+.pattern-option > div:nth-child(3) > div:after{
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 8px solid rgba(0,0,0,.5);
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -6px;
+}
+.pattern-option > div:nth-child(4) > div{
+  width: 30vw;
+  height: 42vw;
+  background:rgba(0,0,0,.5);
+  position: absolute;
+  left:-31vw;
+  top: -21vw;
+  margin-top: 2vw;
+  padding: .5vw;
+}
+.pattern-option > div:nth-child(4) > div:after{
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 8px solid rgba(0,0,0,.5);
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -6px;
+}
+.pattern-option > div:nth-child(5) > div{
+  width: 11vw;
+  height: 6vw;
+  background:rgba(0,0,0,.5);
+  position: absolute;
+  left:-12vw;
+  top: -3vw;
+  margin-top: 2vw;
+  padding: .5vw;
+}
+.pattern-option > div:nth-child(5) > div:after{
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-left: 8px solid rgba(0,0,0,.5);
+  border-bottom: 8px solid transparent;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -6px;
+}
+.show-pattern-background{
+  width: 100%;
+  height: 100%;
+}
+
+.control-panel{
+  width: 100vw;
+  height:10vh;
+  position: absolute;
+  bottom: 3%;
+  z-index: 4;
+}
+.panel-left{
+  width: 6.4vw;
+  height:10vh;
+  padding-right:10px;
+  float:left;
+}
+.backBtn1{
+  width: 100%;
+  height: 10vh;
+  background:rgba(0,0,0,1) url(../images/common/left.png) no-repeat 20% 50%;
+  background-size: 10%;
+  opacity: .5;
+  color:rgba(252,252,252,1);
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  cursor: pointer;
+}
+.color-panel-padding{
+  width: 46vw;
+  height:10vh;
+  float: left;
+  // padding-left: 10px;
+}
+.color-panel{
+  width: 46vw;
+  height:10vh;
+  background:url(../images/common/order-color.png);
+  position: relative;
+}
+.wheel-panel{
+  width: 24.6vw;
+  height:10vh;
+  float: left;
+  background:url(../images/common/order-color.png);
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  position: relative;
+}
+.space-panel{
+   width: 23vw;
+   height:10vh;
+   float: left;
+   background:url(../images/common/order-color.png);
+   position: relative;
+}
+.color-panel-box{
+  position: absolute;
+  width: 46vw;
+  height: 10vh;
+  left: 0;
+}
+.color-panel-box .box{
+  width: 4.6vw;
+  height: 10vh;
+  cursor: pointer;
+  margin-left: 20px;
+  position: relative;
+}
+
+.color-panel-box .box div:nth-child(1){
+  width: 100%;
+  height:4px;
+  background: rgba(213,0,28,1);
+}
+.color-panel-box .box p:nth-child(2){
+  color:rgba(252,252,252,1);
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+}
+.color-panel-box .box img{
+  width: 4.6vw;
+  margin-top: 5px;
+  position:absolute;
+  top: 22px;
+  left: 0;
+}
+.wheel-panel-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+.wheel-panel-box .box{
+  width: 15%;
+  height: 100%;
+  cursor: pointer;
+  margin-left: 20px;
+  position: relative;
+}
+.wheel-panel-box .box div:nth-child(1){
+  width: 100%;
+  height:4px;
+  background: rgba(213,0,28,1);
+}
+.wheel-panel-box .box p:nth-child(2){
+  color:rgba(252,252,252,1);
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+}
+.wheel-panel-box .box img{
+  width: 100%;
+  margin-top: 5px;
+  position:absolute;
+  top: 22px;
+  left: 0;
+}
+.space-panel-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+.space-panel-box .box{
+  width: 20%;
+  height: 100%;
+  cursor: pointer;
+  margin-left: 20px;
+  position: relative;
+}
+.space-panel-box .box div:nth-child(1){
+  width: 100%;
+  height:4px;
+  background: rgba(213,0,28,1);
+}
+.space-panel-box .box p:nth-child(2){
+  color:rgba(252,252,252,1);
+  text-align: center;
+  line-height: 18px;
+  font-size: 12px;
+}
+.space-panel-box .box img{
+  width: 100%;
+  margin-top: 5px;
+  position:absolute;
+  top: 22px;
+  left: 0;
+}
+
+
+
+.division{
+  width: 3px;
+  height: 100%;
+  position: relative;
+  z-index: 3;
+  background: #fff;
+  // left:50%;
+}
+.division img{
+  width:106px;
+  position:absolute;
+  left:-53px;
+  top:0;
+  top: 50%;
+  margin-top: -53px;
+  cursor: pointer;
+  opacity:0.5;
+}
+.carBox{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  overflow: hidden;
+  z-index: 1;
+}
+.carBox-vs{
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  overflow: hidden;
+  z-index: 2;
+}
+.car,.car1{
+  width: 100vw;
+  height: 100vh;
+}
+.car > div,.car1 > div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.car div,.car1 div{
+  width: 100%;
+}
+.car img,.car1 img{
+  width: 100vw;
+}
+.col{
+  overflow: hidden;
+}
+.col1,.col2,.col3,.col4,.col5{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:1;
+}
+.lg{
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:1;
+}
+.dianBox{
+  width:100vw;
+  height:50vw;
+  position:absolute;
+  top:50%;
+  margin-top:-25vw;
+}
+.hotpoint{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.hotpoint img{
+  position: absolute;
+  width: 3vw;
+  height: 3vw;
+  z-index: 10;
+}
