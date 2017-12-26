@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div class="area" :style="{height: (wW * 1132) / 640 + 'px', marginTop: (1132 - ((wW * 1132) / 640)) / 2 + 'px'}">
+    <div class="area">
       <div class="carBox">
         <div class="dianBox">
           <div class="hotpoint" v-for="(hot, num) in hotPoint">
@@ -76,7 +76,7 @@
 
       <div ref="carBox_vs" v-bind:style="{width : division_l}" v-show="divisionShow" class="carBox-vs">
 
-        <div class="car car1">
+        <div class="car">
           <div v-for="(item, i) in coloritems" v-show="i === dragshow" v-bind:class="item.class">
             <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
@@ -229,15 +229,13 @@ export default {
     },
     getXY (e) {
       var _e = false
-      if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
-        if (e.targetTouches || e.changedTouches || e.touches) {
-          if (e.targetTouches[0] !== undefined) {
-            _e = e.targetTouches[0]
-          } else if (e.changedTouches[0] !== undefined) {
-            _e = e.changedTouches[0]
-          } else if (e.touches[0] !== undefined) {
-            _e = e.touches[0]
-          }
+      if (e.targetTouches || e.changedTouches || e.touches) {
+        if (e.targetTouches[0] !== undefined) {
+          _e = e.targetTouches[0]
+        } else if (e.changedTouches[0] !== undefined) {
+          _e = e.changedTouches[0]
+        } else if (e.touches[0] !== undefined) {
+          _e = e.touches[0]
         }
       }
       if (!_e) { _e = e }
@@ -252,17 +250,17 @@ export default {
     },
     getoffsetXY (e) {
       var _e = false
-      if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
-        if (e.targetTouches || e.changedTouches || e.touches) {
-          if (e.targetTouches[0] !== undefined) {
-            _e = e.targetTouches[0]
-          } else if (e.changedTouches[0] !== undefined) {
-            _e = e.changedTouches[0]
-          } else if (e.touches[0] !== undefined) {
-            _e = e.touches[0]
-          }
+      // if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
+      if (e.targetTouches || e.changedTouches || e.touches) {
+        if (e.targetTouches[0] !== undefined) {
+          _e = e.targetTouches[0]
+        } else if (e.changedTouches[0] !== undefined) {
+          _e = e.changedTouches[0]
+        } else if (e.touches[0] !== undefined) {
+          _e = e.touches[0]
         }
       }
+      // }
       if (!_e) { _e = e }
       return {
         x: e.target.parentNode.offsetLeft,
