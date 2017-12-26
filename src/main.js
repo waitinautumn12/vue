@@ -5,10 +5,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import App from './App'
 import router from './router'
-import Vuex from 'vuex'
+import store from './store'
 
 Vue.use(ElementUI)
-Vue.use(Vuex)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
@@ -20,6 +19,7 @@ Vue.component('todo-item', {
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

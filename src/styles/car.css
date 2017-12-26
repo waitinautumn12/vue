@@ -241,15 +241,13 @@
   left: 0;
 }
 
-
-
 .division{
   width: 3px;
   height: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
   z-index: 3;
   background: #fff;
-  // left:50%;
 }
 .division img{
   width:106px;
@@ -260,6 +258,10 @@
   margin-top: -53px;
   cursor: pointer;
   opacity:0.5;
+}
+.area{
+  position:absolute;
+  width: 100%;
 }
 .carBox{
   width: 100%;
@@ -314,10 +316,10 @@
 }
 .dianBox{
   width:100vw;
-  height:50vw;
+  height:50vh;
   position:absolute;
-  top:50%;
-  margin-top:-25vw;
+  left:0;
+  top:0;
 }
 .hotpoint{
   width: 100%;
