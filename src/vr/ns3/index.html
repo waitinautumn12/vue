@@ -1,8 +1,8 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<title>krpano - zhu_05_10k</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, viewport-fit=cover" /> -->
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -24,6 +24,11 @@
 		embedpano({swf:"pano.swf", xml:"pano.xml", target:"pano", html5:"auto", mobilescale:1.0, passQueryParameters:true});
 	</script>
 </div>
-
+<script>
+  function hotspot(id){
+    var index = id;
+    window.top.postMessage(index,'*');
+  }
+</script>
 </body>
 </html>
