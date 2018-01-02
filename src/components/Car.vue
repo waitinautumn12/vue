@@ -1,9 +1,205 @@
 <template>
   <div v-bind:style="{background : senceurl,backgroundSize : sencesize,}" class="thirdPage" @touchstart="bodytouch_s" @touchmove="bodytouch_m" @touchend="bodytouch_e">
     <div class="pattern-option">
-      <div v-for="(url, i) in patterns" @click="pattern(i)" v-bind:style="{ background: i === patternNum ? url.src1 : url.src}">
+      <!-- <div v-for="(url, i) in patterns" @click="pattern(i)" v-bind:style="{ background: i === patternNum ? url.src1 : url.src}">
         <div v-show=" i === patternNum">
           <div class="show-pattern-background" v-bind:style="{ background: url.src2}"></div>
+        </div>
+      </div> -->
+
+      <div id="a1" @click="pattern(0)" v-bind:style="{ background: 0 === patternNum ? patterns[0].src1 : patterns[0].src}">
+        <div></div>
+      </div>
+      <div id="a2" @click="pattern(1)" v-bind:style="{ background: 1 === patternNum ? patterns[1].src1 : patterns[1].src}">
+        <div></div>
+      </div>
+      <div id="a3" @click="pattern(2)" v-bind:style="{ background: 2 === patternNum ? patterns[2].src1 : patterns[2].src}">
+        <div v-show=" 2 === patternNum">
+          <!-- <img src="../images/common/wechart.jpeg" alt=""> -->
+        </div>
+      </div>
+      <div id="a4" @click="pattern(3)" v-bind:style="{ background: 3 === patternNum ? patterns[3].src1 : patterns[3].src}">
+        <div v-show=" 3 === patternNum">
+          <div class="individuation-order">
+            <div style="width:100%;height:14%;font-size:1rem">
+              <p style="text-align:left;font-size:1.25rem;">个性订单</p>
+              <p style="width:3.3rem;height:.1rem;background:#D5001C;margin:0.8rem 0 1.3rem 0;"></p>
+              <p style="text-align:left;font-size:2.08rem;">Merecedes AMG E63</p>
+            </div>
+            <div style="width:100%;height:33%;">
+              <div>
+                <el-row>
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord1.png" alt="">
+                        <p>加速时间</p>
+                        <p>3.5s</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord2.png" alt="">
+                        <p>排量</p>
+                        <p>54613m</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord3.png" alt="">
+                        <p>最大扭矩</p>
+                        <p>800/500Nm</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content bg-purple-light">
+                      <div class="caption">
+                        <img src="../images/common/ord4.png" alt="">
+                        <p>最高时速</p>
+                        <p>250km/h</p>
+                      </div>
+                    </div>
+                  </el-col>
+                </el-row>
+                <el-row style="margin-top:2.67rem;">
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord5.png" alt="">
+                        <p>油耗</p>
+                        <p>15.3/L</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord6.png" alt="">
+                        <p>功率</p>
+                        <p>430kW</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content">
+                      <div class="caption">
+                        <img src="../images/common/ord7.png" alt="">
+                        <p>移动方式</p>
+                        <p>4MATIC</p>
+                      </div>
+                    </div>
+                  </el-col>
+                  <el-col :span="6">
+                    <div class="grid-content">
+
+                    </div>
+                  </el-col>
+                </el-row>
+              </div>
+            </div>
+            <div style="width:100%;height:53%;">
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">
+                    发动机类型
+                  </div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">
+                    V8双涡轮增压发动机
+                  </div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">排量</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">5461毫升</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">额定功率</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">430千瓦</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">额定扭矩</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">800牛顿</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">最高车速</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">250千米／消失</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key">加速时间</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val">3.5秒</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key_color">
+                    <img src="../images/common/xuandonghong.png" alt="">
+                  </div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val_color">外观颜色选项：钻石银</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key_color">
+                    <img style="width:5.3rem;margin-left:1.2rem;" src="../images/common/wheel2.png" alt="">
+                  </div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val_color">12</div>
+                </el-col>
+              </el-row>
+
+              <el-row>
+                <el-col :span="8" style="padding: 0 4px 0 0;">
+                  <div class="grid-content bg-purple parameter_key" style="border-bottom:4px solid #000;">厂商建议价格</div>
+                </el-col>
+                <el-col :span="16">
+                  <div class="grid-content bg-purple-light parameter_val" style="border-bottom:2px solid #000;color:#000;">1,280,000元</div>
+                </el-col>
+              </el-row>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a5" @click="pattern(4)" v-bind:style="{ background: 4 === patternNum ? patterns[4].src1 : patterns[4].src}">
+        <div class="facturer-suggest" v-show=" 4 === patternNum">
+          <p>制造商建议零售价</p>
+          <p></p>
+          <p>1,280,000元</p>
         </div>
       </div>
     </div>
@@ -176,12 +372,12 @@ export default {
       }
     },
     bodytouch_s (e) {
-      var _xy = this.getXY(e)
+      let _xy = this.getXY(e)
       this.sX = _xy.x
     },
     bodytouch_m (e) {
-      var _xy = this.getXY(e)
-      var eX = _xy.x
+      let _xy = this.getXY(e)
+      let eX = _xy.x
       if (Math.abs(eX - this.sX) > 10) {
         this.changCar(eX - this.sX)
       }
@@ -194,33 +390,33 @@ export default {
       console.log(1)
     },
     divisiontouch_m (e) {
-      var _xy = this.getXY(e)
-      var eX = _xy.x
-      var eY = _xy.y
+      let _xy = this.getXY(e)
+      let eX = _xy.x
+      let eY = _xy.y
       this.division_l = eX + 'px'
       this.division_t = eY + 'px'
     },
     colortouch_s (e) {
-      var xy = this.getXY(e)
-      var _xy = this.getoffsetXY(e)
-      var eX = _xy.x
-      var eY = _xy.y
-      var parentoffsetleft = this.$refs.colorbox.offsetLeft
+      let xy = this.getXY(e)
+      let _xy = this.getoffsetXY(e)
+      let eX = _xy.x
+      let eY = _xy.y
+      let parentoffsetleft = this.$refs.colorbox.offsetLeft
       // 点击位置相对于色块水平方向的距离
       this.offsetX = parseInt(xy.x) - (parseInt(eX) + parseInt(parentoffsetleft))
       // 点击位置相对于色块竖直方向的距离
       this.offsetY = eY
     },
     colortouch_m (e, i) {
+      let _xy = this.getXY(e)
       this.colorsign = i
-      var _xy = this.getXY(e)
       this.colorpositionX = parseInt(_xy.x) - parseInt(this.offsetY) + 'px'
       this.colorpositionY = parseInt(_xy.y) - parseInt(this.offsetY) + 'px'
     },
     colortouch_e (e, i) {
       this.colorsign = null
-      var divisionL = parseInt(this.division_l.replace('px'))
-      var colorpositionX = parseInt(this.colorpositionX.replace('px'))
+      let divisionL = parseInt(this.division_l.replace('px'))
+      let colorpositionX = parseInt(this.colorpositionX.replace('px'))
       if (colorpositionX > divisionL) {
         this.showcolor = parseInt(i)
       } else {
@@ -228,7 +424,7 @@ export default {
       }
     },
     getXY (e) {
-      var _e = false
+      let _e = false
       if (e.targetTouches || e.changedTouches || e.touches) {
         if (e.targetTouches[0] !== undefined) {
           _e = e.targetTouches[0]
@@ -249,7 +445,7 @@ export default {
       }
     },
     getoffsetXY (e) {
-      var _e = false
+      let _e = false
       // if (/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent)) {
       if (e.targetTouches || e.changedTouches || e.touches) {
         if (e.targetTouches[0] !== undefined) {

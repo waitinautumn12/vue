@@ -1,11 +1,60 @@
-<krpano>
-
+<krpano onstart="intro();">
 	<!-- the skin -->
 	<include url="skin/defaultskin.xml" />
-
 	<!-- view settings -->
-	<view hlookat="0" vlookat="0" maxpixelzoom="1.0" fovmax="150" limitview="auto" />
+	<view
+    hlookat="0"
+    vlookat="0"
+    maxpixelzoom="1.0"
+    fovmax="100"
+    limitview="auto"
+    />
 
+  <layer name="adc"
+       type="image"
+       url="zhu_05_10k.tiles/pano_b.jpg"
+       keep="false"
+       parent=""
+       visible="true"
+       enabled="true"
+       handcursor="true"
+       maskchildren="false"
+       scalechildren="false"
+       zorder=""
+       style=""
+       align=""
+       edge=""
+       x="130"
+       y="130"
+       rotate="0.0"
+       width="100"
+       height="100"
+       scale="1.0"
+       alpha="1.0"
+       crop=""
+       onovercrop=""
+       ondowncrop=""
+       bgcolor="0x000000"
+       bgalpha="0.0"
+       bgborder="0"
+       bgroundedge="0"
+       bgshadow=""
+       bgcapture="false"
+       onover=""
+       onhover="aaa"
+       onout=""
+       onclick="aaa"
+       ondown=""
+       onup=""
+       onloaded=""
+       />
+  <action name="intro">
+    lookat(0,0,90);
+    <!-- wait(LOAD);
+    lookto(120,10,110);
+    lookto(-50,40,110);
+    lookto(0,0,90); -->
+  </action>
 
 	<preview url="zhu_05_10k.tiles/preview.jpg" />
 
@@ -14,16 +63,8 @@
 	</image>
 
 
-  <hotspot name="spot15" url="dian.png"   scale="2" ath="19.17" atv="20.334"  onclick="js(hotspot(14);)" />
-  <hotspot name="spot16" url="dian.png"   scale="2" ath="57.016" atv="10.148"  onclick="js(hotspot(16);)"  />
-  <hotspot name="spot17" url="dian.png"   scale="2" ath="15.378" atv="9.47"  onclick="js(hotspot(17);)"  />
-  <hotspot name="spot18" url="dian.png"   scale="2" ath="16.045" atv="53.994"  onclick="js(hotspot(18);)"  />
-  <hotspot name="spot19" url="dian.png"   scale="2" ath="41.924" atv="48.253"  onclick="js(hotspot(19);)"  />
-  <hotspot name="spot20" url="dian.png"   scale="2" ath="60.169" atv="44.297"  onclick="js(hotspot(20);)"  />
-  <hotspot name="spot21" url="dian.png"   scale="2" ath="29.035" atv="18.837"  onclick="js(hotspot(21);)"  />
-  <hotspot name="spot22" url="dian.png"   scale="2" ath="4.253" atv="38.194"  onclick="js(hotspot(22);)"  />
-  <hotspot name="spot23" url="dian.png"   scale="2" ath="19.474" atv="72.057"  onclick="js(hotspot(23);)"  />
-  <hotspot name="spot24" url="dian.png"   scale="2" ath="-390" atv="170"  onclick="js(hotspot(24);)" />
+  <hotspot name="spot15" url="dian.png" scale="2" ath="19.17" atv="20.334"  onclick="js(hotspot(2);)" />
+  <hotspot name="spot16" url="dian.png" scale="2" ath="57.016" atv="10.148"  onclick="js(hotspot(3);)"  />
 
 </krpano>
 

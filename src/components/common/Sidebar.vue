@@ -1,9 +1,11 @@
 <template>
   <div class="sidebar">
     <div class="hot-brand">
+      <img src="../../images/common/hot.png" alt="">
       <p>热门品牌</p>
     </div>
     <div class="choose-brand">
+      <img src="../../images/common/choose.png" alt="">
       <p>选择品牌</p>
     </div>
   </div>
@@ -23,16 +25,27 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .sidebar{
-  width: 15vw;
-  height: 100vh;
+  width: 2.92rem;
+  height: 100%;
   float:left;
 }
 .hot-brand{
-  width: 100%;
-  height: 25vh;
-  background: #D5001C url(../../images/common/hot.png) no-repeat 50% 30%;
-  background-size:30%;
+  width: 2.92rem;
+  height: 2.7rem;
+  background: #D5001C;
   position: relative;
+  line-height: .2rem;
+}
+.hot-brand img{
+  width: .74rem;
+  margin-top: .82rem;
+}
+.hot-brand p{
+  width: 100%;
+  height: 20px;
+  font-size: .2rem;
+  color: #fff;
+  margin-top: 0.135rem;
 }
 .hot-brand:after{
   content:'';
@@ -47,28 +60,21 @@ export default {
   z-index: 999;
 }
 
-.hot-brand p{
-  width: 100%;
-  position: absolute;
-  top: 70%;
-  text-align: center;
-  font-size: 1.5vw;
-  color: #fff;
-}
 .choose-brand{
-  width: 100%;
-  height: 75vh;
+  width: 2.92rem;
+  height: 8.11rem;
   position: relative;
-  background: #222 url(../../images/common/choose.png) no-repeat 50% 45%;
-  background-size:30%;
+  background: #222;
+  padding-top: 3.22rem;
+  line-height: .2rem;
+}
+.choose-brand img{
+  width: .74rem;
 }
 .choose-brand p{
-  width: 100%;
-  position: absolute;
-  top: 60%;
-  text-align: center;
-  font-size: 1.5vw;
+  font-size: .2rem;
   color: #fff;
+  margin-top: 0.14rem;
 }
 .choose-brand:after{
   content:'';

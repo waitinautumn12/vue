@@ -1,7 +1,6 @@
 <template>
   <div class="brand">
     <div class="brand-active" @click="goModel()"></div>
-    <div class="brand-active" @click="goModel()"></div>
     <div v-for="item in items" class="brand-wait">
       <img v-bind:src="item.message">
       <img src="../images/common/wait.png" alt="">
@@ -16,6 +15,7 @@ export default {
   data () {
     return {
       items: [
+        { message: 'src/images/brand/ad.png' },
         { message: 'src/images/brand/bk.png' },
         { message: 'src/images/brand/bm.png' },
         { message: 'src/images/brand/bt.png' },
@@ -48,9 +48,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .brand{
-  width: 85vw;
+  width: 100%;
   height: 100vh;
-  fontSize: 1.5vw;
+  font-size: .167rem;
   float: left;
 }
 .brand > div{
@@ -63,10 +63,6 @@ export default {
   border-bottom: 1px solid #ccc;
 }
 .brand .brand-active:nth-child(1){
-  background: #f5f5f5 url('../images/brand/ad.png') no-repeat 50%;
-  background-size: 40%;
-}
-.brand .brand-active:nth-child(2){
   background: #f5f5f5 url('../images/brand/bc.png') no-repeat 50%;
   background-size: 30%;
 }
@@ -97,5 +93,6 @@ export default {
   position: absolute;
   top: 50%;
   margin-top: -15px;
+  font-size: .167rem;
 }
 </style>

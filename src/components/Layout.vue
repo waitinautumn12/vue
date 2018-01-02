@@ -36,9 +36,8 @@ export default {
 </script>
 <style>
 .box{
-  width: 85vw;
+  width: 16.28rem;
   height: 100vh;
-  fontSize: 1.5vw;
   float: left;
 }
 </style>

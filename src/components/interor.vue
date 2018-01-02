@@ -13,10 +13,22 @@ export default {
     }
   },
   created () {
-    window.addEventListener('message', function (e) {
-      var id = e.data
-      console.log(id)
-    }, false)
+    this.listener()
+  },
+  methods: {
+    listener () {
+      var _this = this
+      window.addEventListener('message', function (e) {
+        var id = parseInt(e.data)
+        if (typeof (e.data) !== 'object') {
+          _this.modelhotPoint(id)
+        }
+      }, false)
+    },
+    modelhotPoint (num) {
+      this.$store.commit('addPoint', {num})
+      this.$router.push({ name: 'explain' })
+    }
   }
 }
 </script>

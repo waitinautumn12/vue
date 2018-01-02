@@ -5,10 +5,10 @@
   z-index: 2;
 }
 .pattern-option{
-  width: 4vw;
+  width: .74rem;
   height:87%;
   position: absolute;
-  right: 3vw;
+  right: .48rem;
   z-index: 4;
   display: flex;
   flex-direction: column;
@@ -16,23 +16,22 @@
 }
 .pattern-option > div{
   background-size:100% 100%;
-  width: 4vw;
-  height: 4vw;
-  margin-bottom: .5vw;
+  width: .74rem;
+  height: .74rem;
+  margin-bottom: .104rem;
+  background: #ccc;
   cursor: pointer;
   position: relative;
 }
-.pattern-option > div:nth-child(3) > div{
-  width: 11vw;
-  height: 13.6vw;
+#a3 > div{
+  width: 2.03rem;
+  height: 2.495rem;
   background:rgba(0,0,0,.5);
   position: absolute;
-  left:-12vw;
-  top: -6.8vw;
-  margin-top: 2vw;
-  padding: .5vw;
+  left:-2.14rem;
+  top: -.7rem;
 }
-.pattern-option > div:nth-child(3) > div:after{
+#a3 > div:after{
   content: '';
   width: 0;
   height: 0;
@@ -41,20 +40,17 @@
   border-bottom: 8px solid transparent;
   position: absolute;
   left: 100%;
-  top: 50%;
-  margin-top: -6px;
+  top: 40%;
 }
-.pattern-option > div:nth-child(4) > div{
-  width: 30vw;
-  height: 42vw;
-  background:rgba(0,0,0,.5);
+#a4 > div{
+  width: 5.09rem;
+  height: 7.23rem;
   position: absolute;
-  left:-31vw;
-  top: -21vw;
-  margin-top: 2vw;
-  padding: .5vw;
+  left:-5.2rem;
+  top: -4rem;
+  border:.05rem solid rgba(0,0,0,.5);
 }
-.pattern-option > div:nth-child(4) > div:after{
+#a4 > div:after{
   content: '';
   width: 0;
   height: 0;
@@ -62,21 +58,19 @@
   border-left: 8px solid rgba(0,0,0,.5);
   border-bottom: 8px solid transparent;
   position: absolute;
-  left: 100%;
-  top: 50%;
-  margin-top: -6px;
+  left: 5.04rem;
+  top: 60%;
 }
-.pattern-option > div:nth-child(5) > div{
-  width: 11vw;
-  height: 6vw;
+#a5 > div{
+  width: 2.02rem;
+  height: 1.11rem;
   background:rgba(0,0,0,.5);
   position: absolute;
-  left:-12vw;
-  top: -3vw;
-  margin-top: 2vw;
-  padding: .5vw;
+  left:-2.14rem;
+  top: -.2rem;
+  padding: .245rem .235rem;
 }
-.pattern-option > div:nth-child(5) > div:after{
+#a5 > div:after{
   content: '';
   width: 0;
   height: 0;
@@ -122,7 +116,6 @@
   width: 46vw;
   height:10vh;
   float: left;
-  // padding-left: 10px;
 }
 .color-panel{
   width: 46vw;
@@ -260,10 +253,8 @@
   opacity:0.5;
 }
 .area{
-
   width: 100vw;
   height:100vh;
-
 }
 .carBox{
   width: 100vw;
@@ -334,4 +325,79 @@
   width: 3vw;
   height: 3vw;
   z-index: 10;
+}
+
+/*个性订单*/
+.individuation-order{
+  background:#fff;
+  padding: .2rem .205rem;
+  width:100%;
+  height:100%;
+}
+.caption img{
+  width: .468rem;
+}
+.caption p:nth-child(2){
+  font-size: .1rem;
+  margin-top: 0.058rem;
+}
+.caption p:nth-child(3){
+  font-size: .125rem;
+  margin-top: 0.035rem;
+}
+.parameter_key{
+  border-top:4px solid #000;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  height: .31rem;
+  line-height: .31rem;
+  font-size: .125rem;
+}
+.parameter_val{
+  border-top:2px solid #000;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  height: .31rem;
+  line-height: .31rem;
+  color:#333;
+}
+.parameter_key_color{
+  border-top:4px solid #000;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  height: .65rem;
+}
+.parameter_key_color img{
+  width: .82rem;
+  height: .53rem;
+  margin-top: 0.04rem;
+}
+.parameter_val_color{
+  border-top:2px solid #000;
+  box-sizing: border-box;
+  text-align: left;
+  width: 100%;
+  height: .31rem;
+  line-height: .66rem;
+  color:#333;
+}
+/* 指导价格 */
+.facturer-suggest p:nth-child(1){
+  font-size: .12rem;
+  text-align:left;
+  color:#fff;
+}
+.facturer-suggest p:nth-child(2){
+  width:.37rem;
+  height:0.01rem;
+  background:rgba(213,0,28,1);
+  margin: 0.11rem 0 .185rem 0;
+}
+.facturer-suggest p:nth-child(3){
+  text-align:left;
+  font-size: .25rem;
+  color:#fff;
 }
