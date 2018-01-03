@@ -49,13 +49,12 @@ export default {
 <style scoped>
 .brand{
   width: 100%;
-  height: 100vh;
-  font-size: .167rem;
+  height: 100%;
   float: left;
 }
 .brand > div{
   width: 20%;
-  height: 25vh;
+  height: 25%;
   float: left;
   position: relative;
   cursor: pointer;
@@ -72,7 +71,7 @@ export default {
   justify-content: center;
 }
 .brand-wait img:nth-child(1){
-  width: 35%;
+  width: 45%;
   z-index: 1;
 }
 .brand-wait img:nth-child(2){
@@ -85,8 +84,6 @@ export default {
 }
 .brand-wait p{
   width: 100%;
-  height: 30px;
-  line-height: 30px;
   text-align: center;
   z-index: 2;
   color:rgba(4,4,4,1);

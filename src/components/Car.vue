@@ -20,179 +20,7 @@
       </div>
       <div id="a4" @click="pattern(3)" v-bind:style="{ background: 3 === patternNum ? patterns[3].src1 : patterns[3].src}">
         <div v-show=" 3 === patternNum">
-          <div class="individuation-order">
-            <div style="width:100%;height:14%;font-size:1rem">
-              <p style="text-align:left;font-size:1.25rem;">个性订单</p>
-              <p style="width:3.3rem;height:.1rem;background:#D5001C;margin:0.8rem 0 1.3rem 0;"></p>
-              <p style="text-align:left;font-size:2.08rem;">Merecedes AMG E63</p>
-            </div>
-            <div style="width:100%;height:33%;">
-              <div>
-                <el-row>
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord1.png" alt="">
-                        <p>加速时间</p>
-                        <p>3.5s</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord2.png" alt="">
-                        <p>排量</p>
-                        <p>54613m</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord3.png" alt="">
-                        <p>最大扭矩</p>
-                        <p>800/500Nm</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content bg-purple-light">
-                      <div class="caption">
-                        <img src="../images/common/ord4.png" alt="">
-                        <p>最高时速</p>
-                        <p>250km/h</p>
-                      </div>
-                    </div>
-                  </el-col>
-                </el-row>
-                <el-row style="margin-top:2.67rem;">
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord5.png" alt="">
-                        <p>油耗</p>
-                        <p>15.3/L</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord6.png" alt="">
-                        <p>功率</p>
-                        <p>430kW</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content">
-                      <div class="caption">
-                        <img src="../images/common/ord7.png" alt="">
-                        <p>移动方式</p>
-                        <p>4MATIC</p>
-                      </div>
-                    </div>
-                  </el-col>
-                  <el-col :span="6">
-                    <div class="grid-content">
-
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </div>
-            <div style="width:100%;height:53%;">
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">
-                    发动机类型
-                  </div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">
-                    V8双涡轮增压发动机
-                  </div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">排量</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">5461毫升</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">额定功率</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">430千瓦</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">额定扭矩</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">800牛顿</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">最高车速</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">250千米／消失</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key">加速时间</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val">3.5秒</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key_color">
-                    <img src="../images/common/xuandonghong.png" alt="">
-                  </div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val_color">外观颜色选项：钻石银</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key_color">
-                    <img style="width:5.3rem;margin-left:1.2rem;" src="../images/common/wheel2.png" alt="">
-                  </div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val_color">12</div>
-                </el-col>
-              </el-row>
-
-              <el-row>
-                <el-col :span="8" style="padding: 0 4px 0 0;">
-                  <div class="grid-content bg-purple parameter_key" style="border-bottom:4px solid #000;">厂商建议价格</div>
-                </el-col>
-                <el-col :span="16">
-                  <div class="grid-content bg-purple-light parameter_val" style="border-bottom:2px solid #000;color:#000;">1,280,000元</div>
-                </el-col>
-              </el-row>
-            </div>
-          </div>
+          <order />
         </div>
       </div>
       <div id="a5" @click="pattern(4)" v-bind:style="{ background: 4 === patternNum ? patterns[4].src1 : patterns[4].src}">
@@ -297,9 +125,13 @@ import { patterns, colors, wheels, spaces, carsheel } from '@/script/car'
 import { coloritems } from '@/script/color'
 import { wheelitems } from '@/script/wheel'
 import { hotPoint } from '@/script/point'
+import order from '@/components/common/order'
 
 export default {
   name: 'CAR',
+  components: {
+    order
+  },
   data () {
     return {
       wW: null,

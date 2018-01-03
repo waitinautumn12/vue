@@ -86,7 +86,7 @@
   width: 100%;
   height: 100%;
 }
-
+/* ++++++++++++++++++++++++ */
 .control-panel{
   width: 100vw;
   height:10vh;
@@ -326,78 +326,23 @@
   height: 3vw;
   z-index: 10;
 }
-
-/*个性订单*/
-.individuation-order{
-  background:#fff;
-  padding: .2rem .205rem;
-  width:100%;
-  height:100%;
-}
-.caption img{
-  width: .468rem;
-}
-.caption p:nth-child(2){
-  font-size: .1rem;
-  margin-top: 0.058rem;
-}
-.caption p:nth-child(3){
-  font-size: .125rem;
-  margin-top: 0.035rem;
-}
-.parameter_key{
-  border-top:4px solid #000;
-  box-sizing: border-box;
-  text-align: left;
-  width: 100%;
-  height: .31rem;
-  line-height: .31rem;
-  font-size: .125rem;
-}
-.parameter_val{
-  border-top:2px solid #000;
-  box-sizing: border-box;
-  text-align: left;
-  width: 100%;
-  height: .31rem;
-  line-height: .31rem;
-  color:#333;
-}
-.parameter_key_color{
-  border-top:4px solid #000;
-  box-sizing: border-box;
-  text-align: left;
-  width: 100%;
-  height: .65rem;
-}
-.parameter_key_color img{
-  width: .82rem;
-  height: .53rem;
-  margin-top: 0.04rem;
-}
-.parameter_val_color{
-  border-top:2px solid #000;
-  box-sizing: border-box;
-  text-align: left;
-  width: 100%;
-  height: .31rem;
-  line-height: .66rem;
-  color:#333;
-}
 /* 指导价格 */
 .facturer-suggest p:nth-child(1){
   font-size: .12rem;
   text-align:left;
   color:#fff;
+  line-height: .1rem;
 }
 .facturer-suggest p:nth-child(2){
   width:.37rem;
   height:0.01rem;
   background:rgba(213,0,28,1);
-  margin: 0.11rem 0 .185rem 0;
+  margin: 0.11rem 0 0.155rem 0;
 }
 .facturer-suggest p:nth-child(3){
   text-align:left;
   font-size: .25rem;
   color:#fff;
+  line-height: .2rem;
 }
+

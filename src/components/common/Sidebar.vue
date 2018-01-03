@@ -25,13 +25,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .sidebar{
-  width: 2.92rem;
-  height: 100%;
+  width: 2.95rem;
+  height: 100vh;
   float:left;
 }
 .hot-brand{
-  width: 2.92rem;
-  height: 2.7rem;
+  width: 2.95rem;
+  height: 25%;
   background: #D5001C;
   position: relative;
   line-height: .2rem;
@@ -42,7 +42,6 @@ export default {
 }
 .hot-brand p{
   width: 100%;
-  height: 20px;
   font-size: .2rem;
   color: #fff;
   margin-top: 0.135rem;
@@ -61,14 +60,14 @@ export default {
 }
 
 .choose-brand{
-  width: 2.92rem;
-  height: 8.11rem;
+  width: 2.95rem;
+  height: 75%;
   position: relative;
   background: #222;
-  padding-top: 3.22rem;
   line-height: .2rem;
 }
 .choose-brand img{
+  margin-top: 3.22rem;
   width: .74rem;
 }
 .choose-brand p{

@@ -3,54 +3,36 @@
     <div class="carStyle">
       <img @click="gocarPanel()" class="exploreBtn" src="../images/common/explore.png" alt="">
       <div class="car-style">
-        <div class="choose-car" @click="lineActive1()">
-          <img src="../images/common/E43.png" alt="">
-          <div v-bind:class='{"line":active,"line1":active1}'></div>
-          <p>E43</p>
-        </div>
-
-        <div class="choose-car" @click="lineActive2()">
-          <img src="../images/common/E63.png" alt="">
-          <div v-bind:class='{"line":active,"line1":active2}'></div>
-          <p>E63</p>
-        </div>
-
-        <div class="choose-car" @click="lineActive3()">
-          <img src="../images/common/E63s.png" alt="">
-          <div v-bind:class='{"line":active,"line1":active3}'></div>
-          <p>E63S</p>
+        <div v-for="(item, i) in items" :style="item.style" class="choose-car" @click="lineActive1(i)">
+          <img v-bind:src="item.url" alt="">
+          <div v-bind:class='{"line":active,"line1":activearr[i]}'></div>
+          <p>{{item.name}}</p>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'brand',
   data () {
     return {
       active: true,
-      active1: false,
-      active2: false,
-      active3: false
+      activearr: [false, true, false],
+      items: [
+        {name: 'E43', url: 'src/images/common/E43.png', style: 'margin-left: 2.22rem;'},
+        {name: 'E63', url: 'src/images/common/E63.png'},
+        {name: 'E63S', url: 'src/images/common/E63S.png'}
+      ]
     }
   },
   methods: {
-    lineActive1 () {
-      this.active1 = true
-      this.active2 = false
-      this.active3 = false
-    },
-    lineActive2 () {
-      this.active1 = false
-      this.active2 = true
-      this.active3 = false
-    },
-    lineActive3 () {
-      this.active1 = false
-      this.active2 = false
-      this.active3 = true
+    lineActive1 (i) {
+      for (let i = 0; i < 2; i++) {
+        this.activearr = []
+        this.activearr.push(false)
+      }
+      this.activearr[i] = true
     },
     gocarPanel () {
       this.$router.push({ name: 'car' })
@@ -62,9 +44,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .brand{
-  width: 85vw;
-  height: 100vh;
-  fontSize: 1.5vw;
+  width: 100%;
+  height: 100%;
   float: left;
 }
 .carStyle{
@@ -74,43 +55,45 @@ export default {
   background-size:100% 100%;
 }
 .exploreBtn{
-  width: 10%;
+  width: 1.65rem;
   position: absolute;
-  top:20%;
-  right:15%;
+  top:2.29rem;
+  right:1.81rem;
   cursor: pointer;
 }
 .car-style{
   width: 100%;
-  height:9%;
+  height: 1.525rem;
   position:absolute;
-  bottom: 5%;
+  bottom: 0.55rem;
   display: flex;
   align-items: center;
 }
 .choose-car{
-  width: 19.5vw;
-  height: 100px;
+  width: 3.646rem;
+  height: 100%;
   cursor: pointer;
-  margin-left: 6vw;
+  margin-left: 0.447rem;
+  line-height: 0.5rem
 }
 .choose-car img{
-  width: 70%;
+  width: 2.36rem;
 }
 .choose-car .line{
   width: 100%;
-  height: 4px;
+  height: 0.05rem;
   background:rgba(255,255,255,1);
+  margin-top: .23rem;
 }
 .choose-car .line1{
   width: 100%;
-  height: 4px;
+  height: 0.05rem;
   background:red;
+  margin-top: .23rem;
 }
 .choose-car p{
-  font-size: 1.2vw;
+  font-size: .33rem;
   color: #fff;
+  margin-top: .23rem;
 }
-
-
 </style>
