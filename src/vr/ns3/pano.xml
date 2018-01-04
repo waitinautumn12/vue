@@ -10,6 +10,33 @@
     limitview="auto"
     />
 
+  <cursors standard="default"
+         dragging="move"
+         moving="move"
+         url=""
+         type="8way"
+         move=""
+         drag=""
+         arrow_l=""
+         arrow_r=""
+         arrow_u=""
+         arrow_d=""
+         arrow_lu=""
+         arrow_ru=""
+         arrow_ld=""
+         arrow_rd=""
+         />
+  <display autofullscreen="true"
+         stereo="false"
+         stereooverlap="0.0"
+         stereoscale="1.0"
+         safearea="auto"
+         hardwarelimit=""
+         usedesktopimages=""
+         mipmapping="auto"
+         loadwhilemoving="auto"
+         framebufferscale="1.0"
+         />
   <layer name="adc"
        type="image"
        url="zhu_05_10k.tiles/pano_b.jpg"
@@ -55,6 +82,18 @@
     lookto(-50,40,110);
     lookto(0,0,90); -->
   </action>
+
+  <display autofullscreen="true"
+         stereo="false"
+         stereooverlap="0.0"
+         stereoscale="1.0"
+         safearea="auto"
+         hardwarelimit=""
+         usedesktopimages=""
+         mipmapping="auto"
+         loadwhilemoving="auto"
+         framebufferscale="1.0"
+         />
 
 	<preview url="zhu_05_10k.tiles/preview.jpg" />
 

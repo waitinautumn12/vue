@@ -1,6 +1,6 @@
 <template>
   <div style="width:100vw;height:100vh;">
-    <iframe id="vr" src="src/vr/ns3/" frameborder="0" width="100%" height="100%"> </iframe>
+    <iframe id="vr" src="src/vr/vtour/tour.html" frameborder="0" width="100%" height="100%"> </iframe>
   </div>
 </template>
 

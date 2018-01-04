@@ -14,8 +14,10 @@
         <div></div>
       </div>
       <div id="a3" @click="pattern(2)" v-bind:style="{ background: 2 === patternNum ? patterns[2].src1 : patterns[2].src}">
-        <div v-show=" 2 === patternNum">
-          <!-- <img src="../images/common/wechart.jpeg" alt=""> -->
+        <div v-show=" 2 === patternNum" style="line-height:.2rem;">
+          <img style="width:1.69rem;margin-top:0.17rem;" src="../images/common/wechart.jpg" alt="">
+          <p style="font-size:0.15rem;color:#fff;margin-top:.12rem;">扫描二维码</p>
+          <p style="font-size:0.15rem;color:#fff;">预约试驾惊喜等你来拿</p>
         </div>
       </div>
       <div id="a4" @click="pattern(3)" v-bind:style="{ background: 3 === patternNum ? patterns[3].src1 : patterns[3].src}">
@@ -43,7 +45,7 @@
             <div v-for="(col, i) in colors" @click="goColor(col.name, i)" class="box">
               <div v-show="colActive === col.name"></div>
               <p v-show="colActive === col.name">{{col.color}}</p>
-              <img @touchstart.stop="colortouch_s($event)" @touchmove.stop="colortouch_m($event, i)" @touchend.stop="colortouch_e($event, i)" v-bind:style="i === colorsign ? {'position' : 'fixed', 'left': colorpositionX, 'top' : colorpositionY} : '' " v-bind:src="col.src" alt="">
+              <img @touchstart.stop="colortouch_s($event)" @touchmove.stop="colortouch_m($event, i)" @touchend.stop="colortouch_e($event, i, col.name)" v-bind:style="i === colorsign ? {'position' : 'fixed', 'left': colorpositionX, 'top' : colorpositionY} : '' " v-bind:src="col.src" alt="">
             </div>
           </div>
         </div>
@@ -240,12 +242,17 @@ export default {
       this.offsetY = eY
     },
     colortouch_m (e, i) {
-      let _xy = this.getXY(e)
-      this.colorsign = i
-      this.colorpositionX = parseInt(_xy.x) - parseInt(this.offsetY) + 'px'
-      this.colorpositionY = parseInt(_xy.y) - parseInt(this.offsetY) + 'px'
+      if (this.divisionShow) {
+        let _xy = this.getXY(e)
+        this.colorsign = i
+        this.colorpositionX = parseInt(_xy.x) - parseInt(this.offsetY) + 'px'
+        this.colorpositionY = parseInt(_xy.y) - parseInt(this.offsetY) + 'px'
+      } else {
+
+      }
     },
-    colortouch_e (e, i) {
+    colortouch_e (e, i, ele) {
+      this.colActive = ele
       this.colorsign = null
       let divisionL = parseInt(this.division_l.replace('px'))
       let colorpositionX = parseInt(this.colorpositionX.replace('px'))
@@ -322,13 +329,19 @@ export default {
           this.divisionShow = !this.divisionShow
           break
         case 2:
-
+          if (this.divisionShow) {
+            this.divisionShow = !this.divisionShow
+          }
           break
         case 3:
-
+          if (this.divisionShow) {
+            this.divisionShow = !this.divisionShow
+          }
           break
         case 4:
-
+          if (this.divisionShow) {
+            this.divisionShow = !this.divisionShow
+          }
           break
       }
     },
