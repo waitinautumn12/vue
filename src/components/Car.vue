@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:style="{background : senceurl,backgroundSize : sencesize,}" class="thirdPage" @touchstart="bodytouch_s" @touchmove="bodytouch_m" @touchend="bodytouch_e">
+  <div v-bind:style="{background : senceurl}" class="thirdPage" @touchstart="bodytouch_s" @touchmove="bodytouch_m" @touchend="bodytouch_e">
     <div class="pattern-option">
       <!-- <div v-for="(url, i) in patterns" @click="pattern(i)" v-bind:style="{ background: i === patternNum ? url.src1 : url.src}">
         <div v-show=" i === patternNum">
@@ -143,8 +143,7 @@ export default {
       divisionShow: false,
       division_l: '50%',
       division_t: '50%',
-      senceurl: 'url(src/images/common/sence2.png) 50% 50%',
-      sencesize: 'cover',
+      senceurl: 'url(src/images/common/sence1.png) 0% 0% / 100%',
       patterns: patterns,
       colors: colors,
       colActive: 'black',
@@ -192,16 +191,13 @@ export default {
       this.spaceActive = ele
       switch (i) {
         case 0 :
-          this.senceurl = 'url(src/images/common/sence2.png) no-repeat 50% 50%'
-          this.sencesize = 'cover'
+          this.senceurl = 'url(src/images/common/sence1.png) 0% 0% / 100%'
           break
         case 1 :
-          this.senceurl = 'url(src/images/common/donggan.png) no-repeat 50% 50%'
-          this.sencesize = 'cover'
+          this.senceurl = 'url(src/images/common/sence2.png) 0% 0% / 100%'
           break
         case 2 :
-          this.senceurl = 'url(src/images/common/kongjian.png) no-repeat 50% 50%'
-          this.sencesize = 'cover'
+          this.senceurl = 'url(src/images/common/sence3.png) 0% 0% / 100%'
           break
       }
     },
