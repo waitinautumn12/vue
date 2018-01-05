@@ -146,6 +146,7 @@ export default {
       senceurl: 'url(src/images/common/sence1.png) 0% 0% / 100%',
       patterns: patterns,
       colors: colors,
+      colortouch: false,
       colActive: 'black',
       wheels: wheels,
       wheelActive: 'twenty',
@@ -239,6 +240,7 @@ export default {
     },
     colortouch_m (e, i) {
       if (this.divisionShow) {
+        this.colortouch = true
         let _xy = this.getXY(e)
         this.colorsign = i
         this.colorpositionX = parseInt(_xy.x) - parseInt(this.offsetY) + 'px'
@@ -248,14 +250,17 @@ export default {
       }
     },
     colortouch_e (e, i, ele) {
-      this.colActive = ele
-      this.colorsign = null
-      let divisionL = parseInt(this.division_l.replace('px'))
-      let colorpositionX = parseInt(this.colorpositionX.replace('px'))
-      if (colorpositionX > divisionL) {
-        this.showcolor = parseInt(i)
-      } else {
-        this.dragshow = parseInt(i)
+      if (this.colortouch) {
+        this.colActive = ele
+        this.colorsign = null
+        let divisionL = parseInt(this.division_l.replace('px'))
+        let colorpositionX = parseInt(this.colorpositionX.replace('px'))
+        if (colorpositionX > divisionL) {
+          this.showcolor = parseInt(i)
+        } else {
+          this.dragshow = parseInt(i)
+        }
+        this.colortouch = false
       }
     },
     getXY (e) {
