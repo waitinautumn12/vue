@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  beforeCreate () {
+    document.documentElement.style.fontSize = document.documentElement.clientWidth / 19.2 + 'px'
+  }
 }
 </script>
 
