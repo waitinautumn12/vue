@@ -10,18 +10,19 @@
   </div>
 </template>
 <script>
-import { wheelentry } from '@/script/wheelentry'
+// import { wheelentry } from '@/script/wheelentry'
 export default {
+  props: ['wheels'],
   name: 'wheelView',
   data () {
     return {
-      wheels: null,
+      // wheels: null,
       wheelActive: 'twenty'
     }
   },
-  created () {
-    this.wheels = wheelentry(this.$store.state.style)
-  },
+  // created () {
+  //   this.wheels = wheelentry(this.$store.state.style)
+  // },
   methods: {
     goWheel (ele, i) {
       this.wheelActive = ele

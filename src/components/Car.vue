@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <wheelView v-on:showwheel="goWheel"/>
+      <wheelView v-on:showwheel="goWheel" :wheels="wheels"/>
       <!-- <div class="wheel-panel">
         <div class="dj wheel-panel-box">
           <div v-for="(wheel, i) in wheels" @click="goWheel(wheel.name, i)" class="box">
@@ -126,6 +126,7 @@
 <script>
 import { patterns, spaces } from '@/script/car'
 import { colorentry } from '@/script/colorentry'
+import { wheelentry } from '@/script/wheelentry'
 
 import { coloritems, carsheel } from '@/script/color'
 import { wheelitems } from '@/script/wheel'
@@ -151,6 +152,7 @@ export default {
       senceurl: 'url(src/images/common/sence1.png) 0% 0% / 100%',
       patterns: patterns,
       colors: null,
+      wheels: null,
       colortouch: false,
       colActive: 'black',
       wheelActive: 'twenty',
@@ -183,14 +185,17 @@ export default {
     // 处理color.js文件中的图片路径
     let track = this.$store.state.brand + '/' + this.$store.state.model + '/' + this.$store.state.style
     this.colors = colorentry(this.$store.state.style)
+    this.wheels = wheelentry(this.$store.state.style)
     console.log(this.colors)
     let colorNum = this.colors.length
+    let wheelNum = this.wheels.length - 1
+    alert(wheelNum)
 
     // 颜色种类 和轮毂个数
     this.carsheel = carsheel(track)
     // console.log(this.carsheel)
     this.coloritems = coloritems(track, colorNum)
-    this.wheelitems = wheelitems(track, 1)
+    this.wheelitems = wheelitems(track, wheelNum)
   },
   methods: {
     goColor (ele, i, name) {
