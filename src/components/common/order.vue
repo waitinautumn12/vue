@@ -140,11 +140,11 @@
       <el-row>
         <el-col :span="8" style="padding: 0 4px 0 0;">
           <div class="grid-content bg-purple parameter_key_color">
-            <img src="../../images/common/xuandonghong.png" alt="">
+            <img v-bind:src="$store.state.activeColor.url" alt="">
           </div>
         </el-col>
         <el-col :span="16">
-          <div class="grid-content bg-purple-light parameter_val_color">外观颜色选项：钻石银</div>
+          <div class="grid-content bg-purple-light parameter_val_color">{{$store.state.activeColor.name}}</div>
         </el-col>
       </el-row>
 

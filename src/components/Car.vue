@@ -42,7 +42,7 @@
       <div class="color-panel-padding" ref="colorbox">
         <div class="color-panel">
           <div class="dj color-panel-box">
-            <div v-for="(col, i) in colors" @click="goColor(col.name, i)" class="box">
+            <div v-for="(col, i) in colors" @click="goColor(col.name, i, col.color)" class="box">
               <div v-show="colActive === col.name"></div>
               <p v-show="colActive === col.name">{{col.color}}</p>
               <img @touchstart.stop="colortouch_s($event)" @touchmove.stop="colortouch_m($event, i)" @touchend.stop="colortouch_e($event, i, col.name)" v-bind:style="i === colorsign ? {'position' : 'fixed', 'left': colorpositionX, 'top' : colorpositionY} : '' " v-bind:src="col.src" alt="">
@@ -50,7 +50,8 @@
           </div>
         </div>
       </div>
-      <div class="wheel-panel">
+      <wheelView v-on:showwheel="goWheel"/>
+      <!-- <div class="wheel-panel">
         <div class="dj wheel-panel-box">
           <div v-for="(wheel, i) in wheels" @click="goWheel(wheel.name, i)" class="box">
             <div v-show="wheelActive === wheel.name"></div>
@@ -58,7 +59,7 @@
             <img v-bind:src="wheel.src" alt="">
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="space-panel">
         <div class="dj space-panel-box">
           <div v-for="(space, i) in spaces" @click="goSpace(space.name, i)" class="box">
@@ -84,7 +85,7 @@
             <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
-          <div v-for="(item, i) in wheelitems" v-show="i === showwheel" v-bind:class="item.class">
+          <div v-for="(item, i) in wheelitems" v-show="i+1 === showwheel" v-bind:class="item.class">
             <img v-for="(img, i) in item.wheel" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
@@ -107,7 +108,7 @@
             <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
-          <div v-for="(item, i) in wheelitems" v-show="i === showwheel" v-bind:class="item.class">
+          <div v-for="(item, i) in wheelitems" v-show="i+1 === showwheel" v-bind:class="item.class" >
             <img v-for="(img, i) in item.wheel" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
@@ -123,16 +124,20 @@
 </template>
 
 <script>
-import { patterns, colors, wheels, spaces, carsheel } from '@/script/car'
-import { coloritems } from '@/script/color'
+import { patterns, spaces } from '@/script/car'
+import { colorentry } from '@/script/colorentry'
+
+import { coloritems, carsheel } from '@/script/color'
 import { wheelitems } from '@/script/wheel'
 import { hotPoint } from '@/script/point'
 import order from '@/components/common/order'
+import wheelView from '@/components/common/wheelView'
 
 export default {
   name: 'CAR',
   components: {
-    order
+    order,
+    wheelView
   },
   data () {
     return {
@@ -145,48 +150,60 @@ export default {
       division_t: '50%',
       senceurl: 'url(src/images/common/sence1.png) 0% 0% / 100%',
       patterns: patterns,
-      colors: colors,
+      colors: null,
       colortouch: false,
       colActive: 'black',
-      wheels: wheels,
       wheelActive: 'twenty',
       hotPoint: hotPoint,
       spaces: spaces,
       spaceActive: 'dream',
-      carsheel: carsheel,
-      coloritems: coloritems,
-      wheelitems: wheelitems,
+      carsheel: null,
+      coloritems: null,
+      wheelitems: null,
       showcolor: 0,
       colorsign: null,
       colorpositionX: null,
       colorpositionY: null,
       dragshow: 1,
       imgshow: 0,
-      showwheel: 0,
+      showwheel: null,
       sX: '',
       offsetX: null,
       offsetY: null
     }
   },
+  beforeCreate () {
+
+  },
   created () {
     this.division_l = (document.body.offsetWidth / 2) + 'px'
     this.wW = document.body.offsetWidth
     this.wH = document.body.offsetHeight
+
+    // 处理color.js文件中的图片路径
+    let track = this.$store.state.brand + '/' + this.$store.state.model + '/' + this.$store.state.style
+    this.colors = colorentry(this.$store.state.style)
+    console.log(this.colors)
+    let colorNum = this.colors.length
+
+    // 颜色种类 和轮毂个数
+    this.carsheel = carsheel(track)
+    // console.log(this.carsheel)
+    this.coloritems = coloritems(track, colorNum)
+    this.wheelitems = wheelitems(track, 1)
   },
   methods: {
-    goColor (ele, i) {
+    goColor (ele, i, name) {
       if (this.divisionShow) {
         return
       }
+      this.$store.commit('orderColor', { ele, name })
       this.colActive = ele
       this.showcolor = parseInt(i)
+
       if (!this.divisionShow) {
         this.dragshow = parseInt(i) + 1
       }
-    },
-    goWheel (ele, i) {
-      this.wheelActive = ele
-      this.showwheel = parseInt(i)
     },
     goSpace (ele, i) {
       this.spaceActive = ele
@@ -349,6 +366,9 @@ export default {
     commentary (num) {
       this.$router.push({ name: 'explain' })
       this.$store.commit('addPoint', { num })
+    },
+    goWheel (i) {
+      this.showwheel = i
     }
   }
 }

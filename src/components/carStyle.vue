@@ -3,7 +3,7 @@
     <div class="carStyle">
       <img @click="gocarPanel()" class="exploreBtn" src="../images/common/explore.png" alt="">
       <div class="car-style">
-        <div v-for="(item, i) in items" :style="item.style" class="choose-car" @click="lineActive1(i)">
+        <div v-for="(item, i) in items" :style="item.style" class="choose-car" @click="lineActive1(i, item.name)">
           <img v-bind:src="item.url" alt="">
           <div v-bind:class='{"line":active,"line1":activearr[i]}'></div>
           <p>{{item.name}}</p>
@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       active: true,
-      activearr: [false, true, false],
+      activearr: [true, false, false],
       items: [
         {name: 'E43', url: 'src/images/common/E43.png', style: 'margin-left: 2.22rem;'},
         {name: 'E63', url: 'src/images/common/E63.png'},
@@ -27,12 +27,13 @@ export default {
     }
   },
   methods: {
-    lineActive1 (i) {
+    lineActive1 (i, S) {
       for (let i = 0; i < 2; i++) {
         this.activearr = []
         this.activearr.push(false)
       }
       this.activearr[i] = true
+      this.$store.commit('recordStyle', { S })
     },
     gocarPanel () {
       this.$router.push({ name: 'car' })

@@ -1,6 +1,6 @@
 <template>
   <div class="brand">
-    <div class="brand-active" @click="goModel()"></div>
+    <div class="brand-active" @click="goModel('bc')"></div>
     <div v-for="item in items" class="brand-wait">
       <img v-bind:src="item.message">
       <img src="../images/common/wait.png" alt="">
@@ -15,31 +15,36 @@ export default {
   data () {
     return {
       items: [
-        { message: 'src/images/brand/ad.png' },
-        { message: 'src/images/brand/bk.png' },
-        { message: 'src/images/brand/bm.png' },
-        { message: 'src/images/brand/bt.png' },
-        { message: 'src/images/brand/bz.png' },
-        { message: 'src/images/brand/dz.png' },
-        { message: 'src/images/brand/ft.png' },
-        { message: 'src/images/brand/fut.png' },
-        { message: 'src/images/brand/gz.png' },
-        { message: 'src/images/brand/jeep.png' },
-        { message: 'src/images/brand/lk.png' },
-        { message: 'src/images/brand/mini.png' },
-        { message: 'src/images/brand/mzd.png' },
-        { message: 'src/images/brand/qr.png' },
-        { message: 'src/images/brand/qy.png' },
-        { message: 'src/images/brand/rc.png' },
-        { message: 'src/images/brand/xd.png' },
-        { message: 'src/images/brand/xfl.png' },
-        { message: 'src/images/brand/xtl.png' }
+        { brand: 'ad', message: 'src/images/brand/ad.png' },
+        { brand: 'bk', message: 'src/images/brand/bk.png' },
+        { brand: 'bm', message: 'src/images/brand/bm.png' },
+        { brand: 'bt', message: 'src/images/brand/bt.png' },
+        { brand: 'bz', message: 'src/images/brand/bz.png' },
+        { brand: 'dz', message: 'src/images/brand/dz.png' },
+        { brand: 'ft', message: 'src/images/brand/ft.png' },
+        { brand: 'fut', message: 'src/images/brand/fut.png' },
+        { brand: 'gz', message: 'src/images/brand/gz.png' },
+        { brand: 'jeep', message: 'src/images/brand/jeep.png' },
+        { brand: 'lk', message: 'src/images/brand/lk.png' },
+        { brand: 'mini', message: 'src/images/brand/mini.png' },
+        { brand: 'mzd', message: 'src/images/brand/mzd.png' },
+        { brand: 'qr', message: 'src/images/brand/qr.png' },
+        { brand: 'qy', message: 'src/images/brand/qy.png' },
+        { brand: 'nissan', message: 'src/images/brand/nissan.png' },
+        { brand: 'xd', message: 'src/images/brand/xd.png' },
+        { brand: 'xfl', message: 'src/images/brand/xfl.png' },
+        { brand: 'xtl', message: 'src/images/brand/xtl.png' }
       ]
     }
   },
   methods: {
-    goModel () {
+    goModel (B) {
       this.$router.push({ name: 'model' })
+      this.$store.commit('recordBrand', { B })
+      // if (window.localStorage) {
+      //   let storage=window.localStorage
+      //   storage.brand = B
+      // }
     }
   }
 }

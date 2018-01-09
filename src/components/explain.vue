@@ -6,13 +6,13 @@
     <el-carousel height="47vh" indicator-position="none" :autoplay="false" :initial-index="$store.state.todos" arrow="never" ref="carousel">
       <div class="prevBtn" v-on:click="setItemprev()"></div>
       <div class="nextBtn" v-on:click="setItemnext()"></div>
-      <el-carousel-item v-for="item in explains" :key="item">
+      <el-carousel-item v-for="(item, i) in explains" :key="i">
         <div class="carouse-box">
           <div v-bind:style="{background: item.url}"></div>
           <div class="carouse-box-right">
             <h1>{{item.title}}</h1>
             <p class="p1"></p>
-            <p class="p2" @click="addPoint('asdewq')">{{item.text}}</p>
+            <p class="p2">{{item.text}}</p>
           </div>
         </div>
       </el-carousel-item>
@@ -49,10 +49,7 @@ export default {
 <style scoped>
 .el-carousel__item h3 {
   color: #475669;
-  font-size: 18px;
   opacity: 0.75;
-  line-height: 300px;
-  margin: 0;
 }
 
 .el-carousel__item:nth-child(2n) {
@@ -65,16 +62,16 @@ export default {
 .box{
   width:100%;
   height:100vh;
-  padding-top:26vh;
+  padding-top:2.77rem;
   background:#000;
   position:relative;
 }
 .prevBtn{
-  width:5vw;
+  width:1.04rem;
   height:100%;
   float:left;
   background:rgba(0,0,0,1) url(../images/common/left.png) no-repeat 50% 50%;
-  background-size: 1vw;
+  background-size: 0.255rem;
   opacity: .8;
   position:absolute;
   left:0;
@@ -83,14 +80,14 @@ export default {
 }
 .prevBtn:hover{
   background:rgba(213,0,28,1) url(../images/common/left.png) no-repeat 50% 50%;
-  background-size: 1vw;
+  background-size: 0.255rem;
 }
 .nextBtn{
-  width:5vw;
+  width:1.04rem;
   height:100%;
   float:left;
   background:rgba(0,0,0,1) url(../images/common/right.png) no-repeat 50% 50%;
-  background-size: 1vw;
+  background-size: 0.255rem;
   opacity: .8;
   position:absolute;
   right:0;
@@ -99,12 +96,12 @@ export default {
 }
 .nextBtn:hover{
   background:rgba(213,0,28,1) url(../images/common/right.png) no-repeat 50% 50%;
-  background-size: 1vw;
+  background-size: 0.255rem;
 }
 .carouse-box{
   width:100%;
   height:100%;
-  padding:0 5vw;
+  padding:0 1.04rem;
 }
 .carouse-box div:nth-child(1){
   width:50%;
@@ -118,22 +115,34 @@ export default {
   background: #000;
   opacity: .85;
 }
+.carouse-box-right h1{
+  width: 100%;
+  font-size: .33rem;
+  color:#fff;
+}
 .carouse-box-right{
-  padding: 5vh 5vw 0 5vw;
+  padding: 1.03rem 0.75rem;
   text-align:left;
 }
 .carouse-box-right .p1{
-  margin:2vh 0;
-  width:5vw;
-  height:2px;
+  width:1.02rem;
+  height:0.01rem;
+  margin-top: 0.21rem;
   background:rgba(213,0,28,1);
 }
+.carouse-box-right .p2{
+  color:#fff;
+  width:7.15rem;
+  height:0.95rem;
+  font-size: .21rem;
+  margin-top: .44rem;
+}
 .closeBtn{
-  width:2vw;
-  height:2vw;
+  width:0.48rem;
+  height:0.48rem;
   position:absolute;
   top:26vh;
-  right:5vw;
-  margin-top:-2vw;
+  right:1.04rem;
+  margin-top:-0.5rem;
 }
 </style>

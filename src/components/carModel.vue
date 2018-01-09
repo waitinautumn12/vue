@@ -1,6 +1,6 @@
 <template>
   <div class="brand">
-    <div class="models" @click="gocarStyle()">
+    <div class="models" @click="gocarStyle('A-Class')">
       <img src="../images/models/A-Class.png" alt="">
       <p>A-Class</p>
     </div>
@@ -41,8 +41,13 @@ export default {
     }
   },
   methods: {
-    gocarStyle () {
+    gocarStyle (M) {
       this.$router.push({ name: 'style' })
+      this.$store.commit('recordModel', { M })
+      // if (window.localStorage) {
+      //   let storage=window.localStorage
+      //   storage.model = M
+      // }
     }
   }
 }
