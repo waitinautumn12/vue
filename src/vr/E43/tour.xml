@@ -1,0 +1,129 @@
+<krpano version="1.19" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+	<skin_settings maps="false"
+        thumbs="true"
+        thumbs_width="120"
+        thumbs_height="100"
+        thumbs_padding="10"
+        thumbs_crop="0|40|240|160"
+        thumbs_opened="ture"
+        thumbs_text="false"
+        thumbs_dragging="true"
+        thumbs_onhoverscrolling="false"
+        thumbs_scrollbuttons="false"
+        thumbs_scrollindicator="false"
+        thumbs_loop="false"
+        deeplinking="false"
+        loadscene_flags="MERGE"
+        loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+        loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+        loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+        loadingtext="loading..."
+        layout_width="103%"
+        layout_maxwidth="100%"
+        controlbar_width="-24"
+        controlbar_height="40"
+        controlbar_offset_closed="-40"
+        controlbar_offset="20"
+        controlbar_overlap.no-fractionalscaling="10"
+        controlbar_overlap.fractionalscaling="0"
+        design_skin_images="vtourskin.png"
+        design_bgcolor="000"
+        design_bgalpha="0.5"
+        design_bgborder="0"
+        design_bgroundedge="1"
+        design_bgshadow="0 4 10 0x000000 0.3"
+        design_text_css="color:#FFFFFF; font-family:Arial;display:none;"
+        design_text_shadow="1"
+        />
+
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+
+	<scene name="scene_zhu_05_10k" title="主驾驶位" onstart="" havevrimage="true" thumburl="panos/zhu_05_10k.tiles/thumb.jpg" lat="" lng="" heading="">
+
+  <!-- 主驾驶位缩略图样式 -->
+  <layer name="poiC" type="text" width="100%" height="40" y="79.6%" bgalpha="0.5" bgcolor="0x000000" >
+    <layer name="poin0"
+          type="text"
+          html="主驾驶位"
+          width="130"
+          x="43.3%"
+          bgcolor="0xFFFFFF"
+          bgalpha="0.0"
+          css="font-size:30px;color:#fff;border-top:5px solid red;text-align:center;"
+          />
+  </layer>
+
+  <!-- panel 按钮组 -->
+  <include url="skin/mine.xml" />
+
+	<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+	<preview url="panos/zhu_05_10k.tiles/preview.jpg" />
+
+	<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+		<level tiledimagewidth="3200" tiledimageheight="3200">
+			<cube url="panos/zhu_05_10k.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="1536" tiledimageheight="1536">
+			<cube url="panos/zhu_05_10k.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+		</level>
+		<level tiledimagewidth="768" tiledimageheight="768">
+			<cube url="panos/zhu_05_10k.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+		</level>
+	</image>
+
+	<image if="webvr.isenabled">
+		<cube url="panos/zhu_05_10k.tiles/vr/pano_%s.jpg" />
+	</image>
+
+  <hotspot name="spot15" url="dian.png" scale="2" ath="19.17" atv="20.334"  onclick="js(hotspot(2);)" />
+
+
+  </scene>
+
+	<scene name="scene_zhu_05_8k" title="前排" onstart="" havevrimage="true" thumburl="panos/zhu_05_8k.tiles/thumb.jpg" lat="" lng="" heading="">
+
+    <layer name="poiC" type="text" width="100%" height="40" y="79.6%" bgalpha="0.5" bgcolor="0x000000" >
+      <layer name="poin"
+            type="text"
+            html="副驾驶位"
+            width="130"
+            x="50%"
+            bgalpha="0.0"
+            css="font-size:30px;color:#fff;border-top:5px solid red;text-align:center;"
+            />
+    </layer>
+
+    <include url="skin/mine.xml" />
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/zhu_05_8k.tiles/preview.jpg" />
+
+		<image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled">
+			<level tiledimagewidth="2624" tiledimageheight="2624">
+				<cube url="panos/zhu_05_8k.tiles/%s/l3/%v/l3_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="1280" tiledimageheight="1280">
+				<cube url="panos/zhu_05_8k.tiles/%s/l2/%v/l2_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="640" tiledimageheight="640">
+				<cube url="panos/zhu_05_8k.tiles/%s/l1/%v/l1_%s_%v_%h.jpg" />
+			</level>
+		</image>
+
+		<image if="webvr.isenabled">
+			<cube url="panos/zhu_05_8k.tiles/vr/pano_%s.jpg" />
+		</image>
+
+    <hotspot name="spot16" url="dian.png" scale="2" ath="57.016" atv="10.148"  onclick="js(hotspot(3);)"  />
+
+	</scene>
+</krpano>

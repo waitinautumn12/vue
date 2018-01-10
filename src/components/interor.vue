@@ -1,6 +1,6 @@
 <template>
   <div style="width:100vw;height:100vh;">
-    <iframe id="vr" src="src/vr/vtour/tour.html" frameborder="0" width="100%" height="100%"> </iframe>
+    <iframe id="vr" :src="src" frameborder="0" width="100%" height="100%"> </iframe>
   </div>
 </template>
 
@@ -9,11 +9,13 @@ export default {
   name: 'interor',
   data () {
     return {
-      active: true
+      active: true,
+      src: null
     }
   },
   created () {
     this.listener()
+    this.src = 'src/vr/' + this.$store.state.style + '/tour.html'
   },
   methods: {
     listener () {

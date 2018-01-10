@@ -186,16 +186,16 @@ export default {
     let track = this.$store.state.brand + '/' + this.$store.state.model + '/' + this.$store.state.style
     this.colors = colorentry(this.$store.state.style)
     this.wheels = wheelentry(this.$store.state.style)
-    console.log(this.colors)
+    console.log(this.wheels)
     let colorNum = this.colors.length
     let wheelNum = this.wheels.length - 1
-    alert(wheelNum)
 
     // 颜色种类 和轮毂个数
     this.carsheel = carsheel(track)
     // console.log(this.carsheel)
     this.coloritems = coloritems(track, colorNum)
     this.wheelitems = wheelitems(track, wheelNum)
+    console.log(this.wheelitems)
   },
   methods: {
     goColor (ele, i, name) {
