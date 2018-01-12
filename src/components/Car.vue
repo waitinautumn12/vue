@@ -1,12 +1,10 @@
 <template>
   <div v-bind:style="{background : senceurl}" class="thirdPage" @touchstart="bodytouch_s" @touchmove="bodytouch_m" @touchend="bodytouch_e">
     <div class="pattern-option">
-      <!-- <div v-for="(url, i) in patterns" @click="pattern(i)" v-bind:style="{ background: i === patternNum ? url.src1 : url.src}">
-        <div v-show=" i === patternNum">
-          <div class="show-pattern-background" v-bind:style="{ background: url.src2}"></div>
-        </div>
-      </div> -->
 
+      <div style="margin-bottom:50px;">
+        <i style="font-size:70px;color:#909399;" class="el-icon-rank"></i>
+      </div>
       <div id="a1" @click="pattern(0)" v-bind:style="{ background: 0 === patternNum ? patterns[0].src1 : patterns[0].src}">
         <div></div>
       </div>
@@ -51,15 +49,7 @@
         </div>
       </div>
       <wheelView v-on:showwheel="goWheel" :wheels="wheels"/>
-      <!-- <div class="wheel-panel">
-        <div class="dj wheel-panel-box">
-          <div v-for="(wheel, i) in wheels" @click="goWheel(wheel.name, i)" class="box">
-            <div v-show="wheelActive === wheel.name"></div>
-            <p v-show="wheelActive === wheel.name">{{wheel.wheel}}</p>
-            <img v-bind:src="wheel.src" alt="">
-          </div>
-        </div>
-      </div> -->
+
       <div class="space-panel">
         <div class="dj space-panel-box">
           <div v-for="(space, i) in spaces" @click="goSpace(space.name, i)" class="box">
@@ -74,7 +64,7 @@
     <div class="area">
       <div class="carBox">
         <div class="dianBox">
-          <div class="hotpoint" v-for="(hot, num) in hotPoint">
+          <div class="hotpoint" v-for="(hot, num) in hotPonit">
             <img v-for="(item, i) in hot" @click="commentary(num)" v-show="item[0] === imgshow" v-bind:style="{ left: item[1] + 'px', top: item[2] + 'px'}" src="../images/common/dian.png" alt="">
           </div>
         </div>
@@ -82,6 +72,10 @@
         <div class="car">
 
           <div v-for="(item, i) in coloritems" v-show="i === showcolor" v-bind:class="item.class">
+            <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
+          </div>
+
+          <div v-for="(item, i) in colordy" v-show="i === showcolor" v-bind:class="item.class">
             <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
@@ -108,6 +102,10 @@
             <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
 
+          <div v-for="(item, i) in colordy" v-show="i === showcolor" v-bind:class="item.class">
+            <img v-for="(img, i) in item.color" v-bind:src="img" v-show="i === imgshow" alt="">
+          </div>
+
           <div v-for="(item, i) in wheelitems" v-show="i+1 === showwheel" v-bind:class="item.class" >
             <img v-for="(img, i) in item.wheel" v-bind:src="img" v-show="i === imgshow" alt="">
           </div>
@@ -128,9 +126,9 @@ import { patterns, spaces } from '@/script/car'
 import { colorentry } from '@/script/colorentry'
 import { wheelentry } from '@/script/wheelentry'
 
-import { coloritems, carsheel } from '@/script/color'
+import { coloritems, carsheel, colordy } from '@/script/color'
 import { wheelitems } from '@/script/wheel'
-import { hotPoint } from '@/script/point'
+import { hotPonit } from '@/script/point'
 import order from '@/components/common/order'
 import wheelView from '@/components/common/wheelView'
 
@@ -151,18 +149,23 @@ export default {
       division_t: '50%',
       senceurl: 'url(src/images/common/sence1.png) 0% 0% / 100%',
       patterns: patterns,
+
       colors: null,
       wheels: null,
+
       colortouch: false,
       colActive: 'black',
       wheelActive: 'twenty',
-      hotPoint: hotPoint,
       spaces: spaces,
       spaceActive: 'dream',
+
       carsheel: null,
       coloritems: null,
+      colordy: null,
       wheelitems: null,
-      showcolor: 0,
+      hotPoint: null,
+
+      showcolor: null,
       colorsign: null,
       colorpositionX: null,
       colorpositionY: null,
@@ -183,19 +186,19 @@ export default {
     this.wH = document.body.offsetHeight
 
     // 处理color.js文件中的图片路径
-    let track = this.$store.state.brand + '/' + this.$store.state.model + '/' + this.$store.state.style
-    this.colors = colorentry(this.$store.state.style)
-    this.wheels = wheelentry(this.$store.state.style)
-    console.log(this.wheels)
-    let colorNum = this.colors.length
+    let track = this.$route.params.brand + '/' + this.$route.params.model + '/' + this.$route.params.style
+    this.colors = colorentry(this.$route.params.style)
+    this.wheels = wheelentry(this.$route.params.style)
+    let colorNum = this.colors.length - 1
     let wheelNum = this.wheels.length - 1
 
     // 颜色种类 和轮毂个数
     this.carsheel = carsheel(track)
-    // console.log(this.carsheel)
     this.coloritems = coloritems(track, colorNum)
+    this.colordy = colordy(track, colorNum)
+    console.log(this.colordy)
     this.wheelitems = wheelitems(track, wheelNum)
-    console.log(this.wheelitems)
+    this.hotPonit = hotPonit(this.$route.params.style)
   },
   methods: {
     goColor (ele, i, name) {
@@ -204,7 +207,7 @@ export default {
       }
       this.$store.commit('orderColor', { ele, name })
       this.colActive = ele
-      this.showcolor = parseInt(i)
+      this.showcolor = parseInt(i - 1)
 
       if (!this.divisionShow) {
         this.dragshow = parseInt(i) + 1
@@ -278,7 +281,7 @@ export default {
         let divisionL = parseInt(this.division_l.replace('px'))
         let colorpositionX = parseInt(this.colorpositionX.replace('px'))
         if (colorpositionX > divisionL) {
-          this.showcolor = parseInt(i)
+          this.showcolor = parseInt(i - 1)
         } else {
           this.dragshow = parseInt(i)
         }
@@ -346,7 +349,7 @@ export default {
       }
       switch (i) {
         case 0:
-          this.$router.push({ name: 'interor' })
+          this.$router.push({ name: 'interor', params: {style: this.$route.params.style} })
           break
         case 1:
           this.divisionShow = !this.divisionShow

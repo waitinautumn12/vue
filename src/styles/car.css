@@ -19,7 +19,6 @@
   width: .74rem;
   height: .74rem;
   margin-bottom: .104rem;
-  background: #ccc;
   cursor: pointer;
   position: relative;
 }
@@ -255,8 +254,6 @@
 }
 .col{
   overflow: hidden;
-}
-.col1,.col2,.col3,.col4,.col5{
   position:absolute;
   left:0;
   top:0;

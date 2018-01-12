@@ -43,7 +43,7 @@ const coloritems = (track, num) => {
   var arr = []
   for (let i = 0; i < num; i++) {
     var arrli = {
-      class: 'col col1',
+      class: 'col col' + i,
       color: [
         'src/images/' + track + '/c' + i + '/0.png',
         'src/images/' + track + '/c' + i + '/1.png',
@@ -88,7 +88,57 @@ const coloritems = (track, num) => {
   return arr
 }
 
+const colordy = (track, num) => {
+  var arr = []
+  for (let i = 0; i < num; i++) {
+    var arrli = {
+      class: 'col coldy' + i,
+      color: [
+        'src/images/' + track + '/c' + i + 'dy/0.png',
+        'src/images/' + track + '/c' + i + 'dy/1.png',
+        'src/images/' + track + '/c' + i + 'dy/2.png',
+        'src/images/' + track + '/c' + i + 'dy/3.png',
+        'src/images/' + track + '/c' + i + 'dy/4.png',
+        'src/images/' + track + '/c' + i + 'dy/5.png',
+        'src/images/' + track + '/c' + i + 'dy/6.png',
+        'src/images/' + track + '/c' + i + 'dy/7.png',
+        'src/images/' + track + '/c' + i + 'dy/8.png',
+        'src/images/' + track + '/c' + i + 'dy/9.png',
+        'src/images/' + track + '/c' + i + 'dy/10.png',
+        'src/images/' + track + '/c' + i + 'dy/11.png',
+        'src/images/' + track + '/c' + i + 'dy/12.png',
+        'src/images/' + track + '/c' + i + 'dy/13.png',
+        'src/images/' + track + '/c' + i + 'dy/14.png',
+        'src/images/' + track + '/c' + i + 'dy/15.png',
+        'src/images/' + track + '/c' + i + 'dy/16.png',
+        'src/images/' + track + '/c' + i + 'dy/17.png',
+        'src/images/' + track + '/c' + i + 'dy/18.png',
+        'src/images/' + track + '/c' + i + 'dy/19.png',
+        'src/images/' + track + '/c' + i + 'dy/20.png',
+        'src/images/' + track + '/c' + i + 'dy/21.png',
+        'src/images/' + track + '/c' + i + 'dy/22.png',
+        'src/images/' + track + '/c' + i + 'dy/23.png',
+        'src/images/' + track + '/c' + i + 'dy/24.png',
+        'src/images/' + track + '/c' + i + 'dy/25.png',
+        'src/images/' + track + '/c' + i + 'dy/26.png',
+        'src/images/' + track + '/c' + i + 'dy/27.png',
+        'src/images/' + track + '/c' + i + 'dy/28.png',
+        'src/images/' + track + '/c' + i + 'dy/29.png',
+        'src/images/' + track + '/c' + i + 'dy/30.png',
+        'src/images/' + track + '/c' + i + 'dy/31.png',
+        'src/images/' + track + '/c' + i + 'dy/32.png',
+        'src/images/' + track + '/c' + i + 'dy/33.png',
+        'src/images/' + track + '/c' + i + 'dy/34.png',
+        'src/images/' + track + '/c' + i + 'dy/35.png'
+      ]
+    }
+    arr.push(arrli)
+  }
+  return arr
+}
+
 export {
   carsheel,
-  coloritems
+  coloritems,
+  colordy
 }

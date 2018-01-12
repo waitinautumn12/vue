@@ -3,7 +3,7 @@
     <div class="carStyle">
       <img @click="gocarPanel()" class="exploreBtn" src="../images/common/explore.png" alt="">
       <div class="car-style">
-        <div v-for="(item, i) in items" :style="item.style" class="choose-car" @click="lineActive1(i, item.name)">
+        <div v-for="(item, i) in carstyle" :style="item.style" class="choose-car" @click="lineActive1(i, item.name)">
           <img v-bind:src="item.url" alt="">
           <div v-bind:class='{"line":active,"line1":activearr[i]}'></div>
           <p>{{item.name}}</p>
@@ -13,18 +13,21 @@
   </div>
 </template>
 <script>
+import { carstyle } from '@/script/carstyle'
 export default {
   name: 'brand',
   data () {
     return {
       active: true,
       activearr: [true, false, false],
-      items: [
-        {name: 'E43', url: 'src/images/common/E43.png', style: 'margin-left: 2.22rem;'},
-        {name: 'E63', url: 'src/images/common/E63.png'},
-        {name: 'E63S', url: 'src/images/common/E63S.png'}
-      ]
+      carstyle: null,
+      passstyle: null
     }
+  },
+  created () {
+    let handleModel = this.$route.params.model.replace('-', '_')
+    this.carstyle = carstyle(handleModel)
+    this.passstyle = this.carstyle[0].name
   },
   methods: {
     lineActive1 (i, S) {
@@ -33,10 +36,10 @@ export default {
         this.activearr.push(false)
       }
       this.activearr[i] = true
-      this.$store.commit('recordStyle', { S })
+      this.passstyle = S
     },
     gocarPanel () {
-      this.$router.push({ name: 'car' })
+      this.$router.push({ name: 'car', params: {brand: this.$route.params.brand, model: this.$route.params.model, style: this.passstyle} })
     }
   }
 }
@@ -65,10 +68,12 @@ export default {
 .car-style{
   width: 100%;
   height: 1.525rem;
+  margin-left:1%;
   position:absolute;
   bottom: 0.55rem;
   display: flex;
   align-items: center;
+  /*justify-content: center;*/
 }
 .choose-car{
   width: 3.646rem;

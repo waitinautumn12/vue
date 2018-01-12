@@ -1,11 +1,14 @@
 <template>
   <div class="brand">
     <div class="brand-active" @click="goModel('bc')"></div>
+    <div class="brand-active" @click="goModel('ad')"></div>
+
     <div v-for="item in items" class="brand-wait">
       <img v-bind:src="item.message">
       <img src="../images/common/wait.png" alt="">
       <p>敬请期待</p>
     </div>
+
   </div>
 </template>
 
@@ -14,8 +17,8 @@ export default {
   name: 'brand',
   data () {
     return {
+      aaa: false,
       items: [
-        { brand: 'ad', message: 'src/images/brand/ad.png' },
         { brand: 'bk', message: 'src/images/brand/bk.png' },
         { brand: 'bm', message: 'src/images/brand/bm.png' },
         { brand: 'bt', message: 'src/images/brand/bt.png' },
@@ -39,12 +42,8 @@ export default {
   },
   methods: {
     goModel (B) {
-      this.$router.push({ name: 'model' })
-      this.$store.commit('recordBrand', { B })
-      // if (window.localStorage) {
-      //   let storage=window.localStorage
-      //   storage.brand = B
-      // }
+      this.$router.push({ name: 'model', params: {brand: B} })
+      // this.$store.commit('recordBrand', { B })
     }
   }
 }
@@ -52,6 +51,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .brand{
   width: 100%;
   height: 100%;
@@ -69,6 +69,10 @@ export default {
 .brand .brand-active:nth-child(1){
   background: #f5f5f5 url('../images/brand/bc.png') no-repeat 50%;
   background-size: 30%;
+}
+.brand .brand-active:nth-child(2){
+  background: #f5f5f5 url('../images/brand/ad.png') no-repeat 50%;
+  background-size: 40%;
 }
 .brand-wait{
   display: flex;

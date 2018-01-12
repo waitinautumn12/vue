@@ -17,6 +17,13 @@ const colorentry = (track) => {
       {name: 'black', color: '炫晶黑', src: 'src/images/common/black.png'},
       {name: 'brown', color: '棕色', src: 'src/images/common/brown.png'},
       {name: 'grey', color: '浅灰', src: 'src/images/common/grey.png'}
+    ],
+    A6: [
+      {name: 'black', color: '炫晶黑', src: 'src/images/common/black.png'},
+      {name: 'brown', color: '棕色', src: 'src/images/common/brown.png'},
+      {name: 'grey', color: '浅灰', src: 'src/images/common/grey.png'},
+      {name: 'red', color: '炫动红', src: 'src/images/common/red.png'},
+      {name: 'red1', color: '炫动红', src: 'src/images/common/red.png'}
     ]
   }
   for (let prop in arr) {

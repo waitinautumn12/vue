@@ -16,20 +16,7 @@ export default {
   },
   data () {
     return {
-      phone: '',
-      loginPassword: '',
-      registerPassword: '',
-      rePassword: '',
-      phoneCode: '',
-      activeTab: 'login',
-      captcha: null,
-      verifyCode: '',
-      countdown: 60,
-      countText: '获取验证码',
-      getcode: 'getcode',
-      isDisable: false,
-      quick: false,
-      dialog: false
+
     }
   }
 }

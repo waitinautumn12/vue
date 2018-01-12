@@ -12,6 +12,10 @@ const wheelentry = (track) => {
     E63S: [
       {name: 'twenty', wheel: '默认轮毂', src: 'src/images/common/wheel1.png'},
       {name: 'nineteen', wheel: '13寸轮毂', src: 'src/images/common/wheel2.png'}
+    ],
+    A6: [
+      {name: 'twenty', wheel: '默认轮毂', src: 'src/images/common/wheel1.png'},
+      {name: 'nineteen', wheel: '13寸轮毂', src: 'src/images/common/wheel2.png'}
     ]
   }
   for (let prop in arr) {

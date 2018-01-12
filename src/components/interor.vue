@@ -15,7 +15,7 @@ export default {
   },
   created () {
     this.listener()
-    this.src = 'src/vr/' + this.$store.state.style + '/tour.html'
+    this.src = 'src/vr/' + this.$route.params.style + '/tour.html'
   },
   methods: {
     listener () {

@@ -22,20 +22,19 @@ export default new Router({
     }, {
       path: '/model',
       component: layoutModel,
-      children: [{ path: '/model', component: Model, name: 'model' }]
+      children: [{ path: '/model/:brand', component: Model, name: 'model' }]
     }, {
       path: '/style',
       component: layoutModel,
-      children: [{ path: '/style', component: Style, name: 'style' }]
+      children: [{ path: '/style/:brand/:model', component: Style, name: 'style' }]
     }, {
       path: '/car',
       component: layoutNull,
-      children: [{ path: '/car', component: Car, name: 'car' }]
+      children: [{ path: '/car/:brand/:model/:style', component: Car, name: 'car' }]
     }, {
       path: '/interor',
-      // name: 'interor',
       component: layoutNull,
-      children: [{ path: '/interor', component: Interor, name: 'interor' }]
+      children: [{ path: '/interor/:style', component: Interor, name: 'interor' }]
     }, {
       path: '/explain',
       component: layoutNull,

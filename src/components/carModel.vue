@@ -1,53 +1,33 @@
 <template>
   <div class="brand">
-    <div class="models" @click="gocarStyle('A-Class')">
-      <img src="../images/models/A-Class.png" alt="">
-      <p>A-Class</p>
-    </div>
-    <div v-for="item in items" class="models">
+    <div v-for="item in carmodel" class="models" @click="gocarStyle(item.carname)">
       <img v-bind:src="item.img" alt="">
-      <p>C-Class</p>
+      <p>{{item.carname}}</p>
     </div>
-    <div class="models">
+    <!-- <div class="models">
 
     </div>
     <div class="models">
 
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
+import { carmodel } from '@/script/carmodel'
 export default {
   name: 'model',
   data () {
     return {
-      firstPage: false,
-      secondPage: true,
-      items: [
-        {carname: 'C-Class', img: 'src/images/models/C-Class.png'},
-        {carname: 'CLA', img: 'src/images/models/CLA.png'},
-        {carname: 'CLS', img: 'src/images/models/CLS.png'},
-        {carname: 'E-Class', img: 'src/images/models/E-Class.png'},
-        {carname: 'G-Class', img: 'src/images/models/G-Class.png'},
-        {carname: 'GLA', img: 'src/images/models/GLA.png'},
-        {carname: 'GLC', img: 'src/images/models/GLC.png'},
-        {carname: 'GLE', img: 'src/images/models/GLE.png'},
-        {carname: 'GLS', img: 'src/images/models/GLS.png'},
-        {carname: 'GT-roadster', img: 'src/images/models/GT-roadster.png'},
-        {carname: 'S-class', img: 'src/images/models/S-class.png'},
-        {carname: 'SL', img: 'src/images/models/SL.png'}
-      ]
+      carmodel: null
     }
+  },
+  created () {
+    this.carmodel = carmodel(this.$route.params.brand)
   },
   methods: {
     gocarStyle (M) {
-      this.$router.push({ name: 'style' })
-      this.$store.commit('recordModel', { M })
-      // if (window.localStorage) {
-      //   let storage=window.localStorage
-      //   storage.model = M
-      // }
+      this.$router.push({ name: 'style', params: {brand: this.$route.params.brand, model: M} })
     }
   }
 }

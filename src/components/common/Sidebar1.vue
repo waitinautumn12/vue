@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar">
-    <div class="bc-brand" v-show="secondPage">
-      <img src="../../images/brand/bc.png" alt="">
+    <div class="bc-brand">
+      <img :src="this.modelsrc" alt="">
     </div>
     <div class="choose-brand">
       <a href="javascript:history.back(-1)">
@@ -14,10 +14,10 @@
 <script>
 export default {
   name: 'sidebar',
+  props: ['carmodel'],
   data () {
     return {
-      firstPage: true,
-      secondPage: true
+      modelsrc: 'src/images/brand/' + this.carmodel + '.png'
     }
   }
 }
@@ -36,10 +36,12 @@ export default {
   background: rgba(0,0,0,.1);
   background-size:30%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .bc-brand img{
-  width: 1.26rem;
-  margin-top: 0.77rem;
+  width: 1.28rem;
 }
 .choose-brand{
   width: 100%;
